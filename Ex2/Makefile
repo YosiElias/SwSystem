@@ -18,11 +18,11 @@ main: main.o
 connections: main.o libmath.so
 	$(CC) $(CFLAGS) -o connections main.o ./libmath.so -lm  
 
-libmath.so: getArray.o my_mat.h
-	$(CC) -shared -o libmath.so getArray.o
+libmath.so: my_mat.o my_mat.h
+	$(CC) -shared -o libmath.so my_mat.o
 
-getArray.o: getArray.c my_mat.h
-	$(CC) $(CFLAGS) -c getArray.c -lm
+my_mat.o: my_mat.c my_mat.h
+	$(CC) $(CFLAGS) -c my_mat.c -lm
 
 
 
